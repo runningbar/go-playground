@@ -63,15 +63,6 @@ func (l *links) append(v string) {
 	l.tail = index
 }
 
-func newItem(v string) item{
-	itm := item{
-		pre: -1,
-		bhd: -1,
-		value: v,
-	}
-	return itm
-}
-
 func (l *links) delete(i int) {
 	if l.list[i].pre != -1 {
 		l.list[l.list[i].pre].bhd = l.list[i].bhd
@@ -89,3 +80,9 @@ func (l *links) delete(i int) {
 	l.list[i].bhd = -2
 }
 
+//output
+/* 
+initial: head = -1, tail = -1, list = []
+after add: head = 0, tail = 2, list = [{-1 1 a} {0 2 b} {1 -1 c}]
+after delete: head = 1, tail = 2, list = [{-2 -2 a} {-1 2 b} {1 -1 c}]
+ */
